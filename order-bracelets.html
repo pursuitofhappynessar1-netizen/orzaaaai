@@ -1703,6 +1703,7 @@ fbq('track', 'PageView');
     <!-- Story Modal -->
     <div id="storyOverlay" class="story-overlay">
       <div class="story-container" id="storyContainer">
+        <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:48px;height:6px;background:rgba(255,255,255,0.4);border-radius:999px;margin:8px 0;z-index:40;pointer-events:none;"></div>
         <img id="storyImg" class="story-img" src="" alt="آراء" />
         <div class="story-gradient-top"></div>
         <div class="story-gradient-bottom"></div>
@@ -1735,8 +1736,10 @@ fbq('track', 'PageView');
       var storyProgress = 0;
       var storyRafId = null;
       var storyLastTick = 0;
-      var storyPaused = false;
       var STORY_DURATION = 6000;
+      var storyTouchStartY = 0;
+      var storyTouchCurrentY = 0;
+      var storyDragging = false;
       var storyOverlay = document.getElementById('storyOverlay');
       var storyImg = document.getElementById('storyImg');
       var storyProgressEl = document.getElementById('storyProgress');
@@ -1762,7 +1765,6 @@ fbq('track', 'PageView');
       }
 
       function storyTick(now) {
-        if (storyPaused) { storyLastTick = now; storyRafId = requestAnimationFrame(storyTick); return; }
         var elapsed = now - storyLastTick;
         storyLastTick = now;
         storyProgress += (elapsed / STORY_DURATION) * 100;
@@ -1837,9 +1839,36 @@ fbq('track', 'PageView');
         if (e.target === storyOverlay) closeStoryModal();
       });
 
-      storyContainer.addEventListener('mousedown', function() { storyPaused = true; });
-      storyContainer.addEventListener('mouseup', function() { storyPaused = false; storyLastTick = performance.now(); });
-      storyContainer.addEventListener('mouseleave', function() { storyPaused = false; storyLastTick = performance.now(); });
+      storyContainer.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) {
+          storyTouchStartY = e.touches[0].clientY;
+          storyTouchCurrentY = storyTouchStartY;
+          storyDragging = true;
+        }
+      }, { passive: true });
+
+      storyContainer.addEventListener('touchmove', function(e) {
+        if (storyDragging && e.touches.length === 1) {
+          storyTouchCurrentY = e.touches[0].clientY;
+          var dy = storyTouchCurrentY - storyTouchStartY;
+          if (dy > 0) {
+            storyContainer.style.transform = 'translateY(' + dy + 'px)';
+            storyContainer.style.opacity = String(1 - dy / 500);
+          }
+        }
+      }, { passive: true });
+
+      storyContainer.addEventListener('touchend', function() {
+        if (storyDragging) {
+          var dy = storyTouchCurrentY - storyTouchStartY;
+          storyDragging = false;
+          storyContainer.style.transform = '';
+          storyContainer.style.opacity = '';
+          if (dy > 120) {
+            closeStoryModal();
+          }
+        }
+      }, { passive: true });
 
       document.addEventListener('keydown', function(e) {
         if (!storyOverlay.classList.contains('active')) return;

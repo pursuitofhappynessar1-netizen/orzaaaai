@@ -31,7 +31,6 @@ export default function StoryModal({
   const [storyIndex, setStoryIndex] = useState(initialStoryIndex);
   const [slideIndex, setSlideIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const rafRef = useRef<number>(0);
@@ -57,7 +56,7 @@ export default function StoryModal({
   }, [slideIndex, storyIndex, stories]);
 
   useEffect(() => {
-    if (!isOpen || isPaused) return;
+    if (!isOpen) return;
     lastTickRef.current = performance.now();
     const tick = (now: number) => {
       const elapsed = now - lastTickRef.current;
@@ -75,7 +74,7 @@ export default function StoryModal({
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen, isPaused, storyIndex, slideIndex]);
+  }, [isOpen, storyIndex, slideIndex]);
 
   useEffect(() => {
     if (isOpen) {
@@ -142,9 +141,6 @@ export default function StoryModal({
     setProgress(0);
   }, [storyIndex, stories]);
 
-  const handleMouseDown = () => setIsPaused(true);
-  const handleMouseUp = () => setIsPaused(false);
-
   const handleDragEnd = (_e: unknown, info: PanInfo) => {
     if (info.offset.y > 120 || info.velocity.y > 300) {
       onClose();
@@ -183,13 +179,8 @@ export default function StoryModal({
             drag="y"
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={{ top: 0, bottom: 0.7 }}
-            onDragStart={() => setIsPaused(true)}
             onDragEnd={handleDragEnd}
-            onDrag={() => setIsPaused(true)}
             onClick={(e) => e.stopPropagation()}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ y: window.innerHeight, opacity: 0 }}
@@ -227,26 +218,24 @@ export default function StoryModal({
             <div className="absolute inset-x-0 bottom-0 h-24" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)' }} />
 
             {/* Progress bars */}
-            {!isPaused && (
-              <div className="absolute top-0 left-0 right-0 p-3 flex gap-1" style={{ zIndex: 30 }}>
-                {currentSlides.map((_, i) => (
+            <div className="absolute top-0 left-0 right-0 p-3 flex gap-1" style={{ zIndex: 30 }}>
+              {currentSlides.map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-1 h-0.5 rounded-full overflow-hidden"
+                  style={{ background: 'rgba(255,255,255,0.3)' }}
+                >
                   <div
-                    key={i}
-                    className="flex-1 h-0.5 rounded-full overflow-hidden"
-                    style={{ background: 'rgba(255,255,255,0.3)' }}
-                  >
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        background: 'rgba(255,255,255,0.95)',
-                        width: i < slideIndex ? '100%' : i === slideIndex ? `${progress}%` : '0%',
-                        transition: i === slideIndex ? 'none' : 'width 0.2s ease',
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+                    className="h-full rounded-full"
+                    style={{
+                      background: 'rgba(255,255,255,0.95)',
+                      width: i < slideIndex ? '100%' : i === slideIndex ? `${progress}%` : '0%',
+                      transition: i === slideIndex ? 'none' : 'width 0.2s ease',
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
 
             {/* Header: title + close */}
             <div className="absolute top-6 left-0 right-0 px-4 flex items-center justify-between" style={{ zIndex: 25 }}>
@@ -313,25 +302,6 @@ export default function StoryModal({
               </span>
             </div>
 
-            {/* Pause indicator */}
-            {isPaused && (
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ zIndex: 25 }}>
-                <div
-                  className="flex items-center justify-center rounded-full"
-                  style={{
-                    width: '56px',
-                    height: '56px',
-                    background: 'rgba(0,0,0,0.4)',
-                    backdropFilter: 'blur(8px)',
-                  }}
-                >
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
-                    <rect x="6" y="5" width="4" height="14" rx="1" />
-                    <rect x="14" y="5" width="4" height="14" rx="1" />
-                  </svg>
-                </div>
-              </div>
-            )}
           </motion.div>
         </motion.div>
       )}
