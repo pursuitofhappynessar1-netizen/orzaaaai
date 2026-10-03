@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Amiri', serif;
+  }
+}
+
+@layer components {
+  .product-name {
+    font-family: 'Cinzel', serif;
+    direction: ltr;
+    display: inline-block;
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  @keyframes floatIcon {
+    0% {
+      transform: translateY(0px);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-6px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes luxuryFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-luxury-fade-up {
+    animation: luxuryFadeUp 0.8s ease-out both;
+  }
+
+  @keyframes shimmerGlow {
+    0%, 100% {
+      box-shadow: 0 6px 24px rgba(36, 50, 71, 0.18), 0 0 0 0 rgba(231, 221, 204, 0);
+    }
+    50% {
+      box-shadow: 0 6px 24px rgba(36, 50, 71, 0.18), 0 0 20px 0 rgba(231, 221, 204, 0.15);
+    }
+  }
+
+  @keyframes waPulse {
+    0%, 100% {
+      box-shadow: 0 6px 20px rgba(36, 50, 71, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.45);
+    }
+    50% {
+      box-shadow: 0 6px 20px rgba(36, 50, 71, 0.35), 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+  }
+
+  @keyframes highlightPulse {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(36, 50, 71, 0.12);
+    }
+    50% {
+      box-shadow: 0 4px 28px rgba(201, 169, 79, 0.25);
+    }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

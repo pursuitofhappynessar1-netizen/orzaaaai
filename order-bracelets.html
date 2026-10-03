@@ -1,0 +1,1867 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>طلب الأساور - ORZI 1998</title>
+    <meta name="description" content="اطلب قطعتك المميزة من تشكيلة ORZI Heritage Bracelets" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Meta Pixel Base Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2204816053376578');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Base Code -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Amiri', serif;
+        background: linear-gradient(160deg, #f5f0e8 0%, #e7ddcc 40%, #f0ebe0 100%);
+        min-height: 100vh;
+        color: #243247;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .action-circles-header {
+        padding: 48px 0 24px;
+      }
+
+      .action-circles-row {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .action-circle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .action-circle__btn {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #243247;
+        border: 1.5px solid #e7ddcc;
+        box-shadow: 0 2px 12px rgba(36, 50, 71, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .action-circle:hover .action-circle__btn {
+        transform: scale(1.05);
+        box-shadow: 0 0 16px rgba(231, 221, 204, 0.25), 0 0 32px rgba(36, 50, 71, 0.08);
+      }
+
+      .action-circle__btn svg {
+        width: 20px;
+        height: 20px;
+        stroke: #e7ddcc;
+        opacity: 0.9;
+        transition: transform 0.3s ease;
+      }
+
+      .action-circle:hover .action-circle__btn svg {
+        transform: scale(1.1);
+      }
+
+      .action-circle__label {
+        font-family: 'Amiri', serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #243247;
+        opacity: 0.6;
+        letter-spacing: 0.03em;
+        transition: opacity 0.3s ease;
+      }
+
+      .action-circle:hover .action-circle__label {
+        opacity: 1;
+      }
+
+      /* ---------- Story Modal ---------- */
+      .story-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 10001;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 14, 20, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .story-overlay.active {
+        display: flex;
+      }
+
+      .story-container {
+        position: relative;
+        height: 100vh;
+        max-height: 900px;
+        aspect-ratio: 9/16;
+        max-width: 100vw;
+      }
+
+      .story-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .story-gradient-top {
+        position: absolute;
+        inset-inline: 0;
+        top: 0;
+        height: 128px;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+      }
+
+      .story-gradient-bottom {
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        height: 96px;
+        background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+      }
+
+      .story-progress-row {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 12px;
+        display: flex;
+        gap: 4px;
+        z-index: 30;
+      }
+
+      .story-progress-bar {
+        flex: 1;
+        height: 2px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.3);
+        overflow: hidden;
+      }
+
+      .story-progress-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.95);
+        width: 0%;
+      }
+
+      .story-header {
+        position: absolute;
+        top: 24px;
+        left: 0;
+        right: 0;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 25;
+      }
+
+      .story-title {
+        font-family: 'Amiri', serif;
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      }
+
+      .story-close {
+        background: rgba(0,0,0,0.3);
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .story-close:hover {
+        transform: scale(1.1);
+      }
+
+      .story-close svg {
+        width: 20px;
+        height: 20px;
+        stroke: #fff;
+      }
+
+      .story-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.25);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 20;
+      }
+
+      .story-nav svg {
+        width: 28px;
+        height: 28px;
+        stroke: #fff;
+      }
+
+      .story-nav--prev { left: 8px; }
+      .story-nav--next { right: 8px; }
+
+      .story-counter {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Cinzel', serif;
+        color: rgba(255,255,255,0.6);
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        z-index: 20;
+      }
+
+      @media (max-width: 768px) {
+        .action-circles-row {
+          gap: 24px;
+        }
+        .story-nav { display: none; }
+      }
+
+      .hero-section {
+        padding: 80px 0 60px;
+        text-align: center;
+      }
+
+      .hero-title {
+        font-family: 'Amiri', serif;
+        font-size: 48px;
+        font-weight: 700;
+        color: #243247;
+        margin-bottom: 24px;
+        line-height: 1.4;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+        color: #243247;
+        opacity: 0.75;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      .divider {
+        width: 60px;
+        height: 2px;
+        background: #243247;
+        opacity: 0.3;
+        margin: 40px auto;
+      }
+
+      .form-container {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(36, 50, 71, 0.1);
+        border-radius: 16px;
+        padding: 48px;
+        margin: 0 auto 80px;
+        max-width: 900px;
+        box-shadow: 0 8px 32px rgba(36, 50, 71, 0.08);
+      }
+
+      .section-title {
+        font-family: 'Amiri', serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #243247;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: #243247;
+        margin-bottom: 8px;
+        opacity: 0.85;
+      }
+
+      .required {
+        color: #c44;
+        margin-right: 4px;
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid rgba(36, 50, 71, 0.2);
+        border-radius: 8px;
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        color: #243247;
+        background: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: #243247;
+        box-shadow: 0 0 0 3px rgba(36, 50, 71, 0.1);
+        background: #ffffff;
+      }
+
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: rgba(36, 50, 71, 0.4);
+      }
+
+      .form-select {
+        cursor: pointer;
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .error-message {
+        color: #c44;
+        font-size: 14px;
+        margin-top: 6px;
+      }
+
+      /* ---------- Cart Items ---------- */
+      .cart-items {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(36, 50, 71, 0.12);
+        border-radius: 12px;
+        padding: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .cart-item:hover {
+        border-color: rgba(36, 50, 71, 0.25);
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .cart-item__image {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      .cart-item__info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .cart-item__name {
+        font-family: 'Cinzel', serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #243247;
+        margin-bottom: 4px;
+      }
+
+      .cart-item__price {
+        font-size: 14px;
+        color: #243247;
+        opacity: 0.6;
+      }
+
+      .cart-item__qty {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .qty-btn {
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(36, 50, 71, 0.2);
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #243247;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        line-height: 1;
+      }
+
+      .qty-btn:hover {
+        background: #243247;
+        color: #e7ddcc;
+        border-color: #243247;
+      }
+
+      .qty-btn:active {
+        transform: scale(0.92);
+      }
+
+      .qty-value {
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #243247;
+        min-width: 28px;
+        text-align: center;
+      }
+
+      .cart-item__line-total {
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #243247;
+        flex-shrink: 0;
+        min-width: 80px;
+        text-align: center;
+      }
+
+      .cart-item__remove {
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: transparent;
+        color: #c44;
+        cursor: pointer;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+        border-radius: 6px;
+      }
+
+      .cart-item__remove:hover {
+        background: rgba(196, 68, 68, 0.1);
+      }
+
+      /* ---------- Cart Summary ---------- */
+      .cart-summary {
+        background: rgba(36, 50, 71, 0.04);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 8px;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        font-size: 16px;
+        color: #243247;
+      }
+
+      .summary-row__label {
+        opacity: 0.7;
+      }
+
+      .summary-row__value {
+        font-weight: 600;
+      }
+
+      .summary-row--total {
+        border-top: 1px solid rgba(36, 50, 71, 0.15);
+        margin-top: 8px;
+        padding-top: 16px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .summary-row--total .summary-row__value {
+        font-family: 'Cinzel', serif;
+        font-size: 22px;
+      }
+
+      /* ---------- Empty Cart ---------- */
+      .empty-cart {
+        text-align: center;
+        padding: 60px 24px;
+      }
+
+      .empty-cart__icon {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(36, 50, 71, 0.05);
+      }
+
+      .empty-cart__icon svg {
+        width: 36px;
+        height: 36px;
+        stroke: #243247;
+        opacity: 0.4;
+      }
+
+      .empty-cart__title {
+        font-family: 'Amiri', serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #243247;
+        margin-bottom: 12px;
+      }
+
+      .empty-cart__text {
+        font-size: 16px;
+        color: #243247;
+        opacity: 0.6;
+        margin-bottom: 32px;
+      }
+
+      .empty-cart__btn {
+        display: inline-block;
+        padding: 14px 40px;
+        background: #243247;
+        color: #e7ddcc;
+        border: none;
+        border-radius: 8px;
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .empty-cart__btn:hover {
+        background: #1a2b3c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(36, 50, 71, 0.25);
+      }
+
+      .trust-section {
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(36, 50, 71, 0.1);
+      }
+
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 32px;
+        margin-top: 24px;
+      }
+
+      .trust-item {
+        text-align: center;
+      }
+
+      .trust-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(36, 50, 71, 0.05);
+      }
+
+      .trust-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: #243247;
+        opacity: 0.6;
+      }
+
+      .trust-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #243247;
+        margin-bottom: 8px;
+        opacity: 0.85;
+      }
+
+      .trust-description {
+        font-size: 14px;
+        color: #243247;
+        opacity: 0.6;
+        line-height: 1.6;
+      }
+
+      .reassurance-text {
+        text-align: center;
+        font-size: 15px;
+        color: #243247;
+        opacity: 0.7;
+        line-height: 1.8;
+        margin-top: 32px;
+        padding: 24px;
+        background: rgba(36, 50, 71, 0.03);
+        border-radius: 8px;
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 16px 32px;
+        background: #243247;
+        color: #e7ddcc;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Amiri', serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 24px;
+      }
+
+      .submit-button:hover:not(:disabled) {
+        background: #1a2b3c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(36, 50, 71, 0.25);
+      }
+
+      .submit-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .payment-note {
+        text-align: center;
+        font-size: 14px;
+        color: #243247;
+        opacity: 0.6;
+        margin-top: 16px;
+      }
+
+      .closing-section {
+        margin-top: 60px;
+        padding: 48px 0;
+        text-align: center;
+        border-top: 1px solid rgba(36, 50, 71, 0.08);
+      }
+
+      .closing-logo {
+        font-family: 'Cinzel', serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #243247;
+        letter-spacing: 0.15em;
+        margin-bottom: 12px;
+      }
+
+      .closing-tagline {
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        color: #243247;
+        opacity: 0.5;
+        letter-spacing: 0.05em;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 16px;
+        padding: 48px;
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        animation: modalFadeIn 0.3s ease;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .success-icon {
+        width: 64px;
+        height: 64px;
+        background: #d4edda;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+      }
+
+      .success-icon svg {
+        width: 32px;
+        height: 32px;
+        stroke: #155724;
+      }
+
+      .modal-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #243247;
+        margin-bottom: 12px;
+      }
+
+      .modal-text {
+        font-size: 18px;
+        color: #243247;
+        opacity: 0.75;
+        margin-bottom: 32px;
+      }
+
+      .modal-button {
+        background: #243247;
+        color: #e7ddcc;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-family: 'Amiri', serif;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .modal-button:hover {
+        background: #1a2b3c;
+      }
+
+      @media (max-width: 768px) {
+        .form-container {
+          padding: 32px 24px;
+        }
+
+        .hero-title {
+          font-size: 36px;
+        }
+
+        .hero-subtitle {
+          font-size: 18px;
+        }
+
+        .action-circles-row {
+          gap: 24px;
+        }
+
+        .trust-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .closing-logo {
+          font-size: 24px;
+        }
+
+        .modal-content {
+          padding: 32px 24px;
+        }
+
+        .cart-item {
+          flex-wrap: wrap;
+        }
+
+        .cart-item__image {
+          width: 60px;
+          height: 60px;
+        }
+
+        .cart-item__name {
+          font-size: 16px;
+        }
+
+        .cart-item__line-total {
+          min-width: 60px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 28px;
+        }
+
+        .hero-subtitle {
+          font-size: 16px;
+        }
+
+        .form-container {
+          padding: 24px 16px;
+        }
+
+        .cart-item__qty {
+          gap: 6px;
+        }
+
+        .qty-btn {
+          width: 28px;
+          height: 28px;
+          font-size: 16px;
+        }
+      }
+
+      .wa-fab {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        direction: rtl;
+      }
+
+      .wa-fab__tooltip {
+        display: none;
+        align-items: center;
+        margin-right: 12px;
+        padding: 10px 18px;
+        background: rgba(36, 50, 71, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(231, 221, 204, 0.3);
+        color: #e7ddcc;
+        font-family: 'Amiri', serif;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 999px;
+        white-space: nowrap;
+        box-shadow: 0 4px 16px rgba(36, 50, 71, 0.25);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .wa-fab:hover .wa-fab__tooltip {
+        display: flex;
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .wa-fab__btn {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(36, 50, 71, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(231, 221, 204, 0.3);
+        box-shadow: 0 6px 20px rgba(36, 50, 71, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        animation: waPulse 2.4s ease-in-out infinite;
+      }
+
+      .wa-fab:hover .wa-fab__btn {
+        transform: scale(1.05);
+        background: rgba(36, 50, 71, 0.8);
+      }
+
+      .wa-fab__btn svg {
+        width: 28px;
+        height: 28px;
+        fill: #25D366;
+      }
+
+      @keyframes waPulse {
+        0%, 100% {
+          box-shadow: 0 6px 20px rgba(36, 50, 71, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.45);
+        }
+        50% {
+          box-shadow: 0 6px 20px rgba(36, 50, 71, 0.35), 0 0 0 10px rgba(37, 211, 102, 0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .wa-fab__tooltip {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=2204816053376578&ev=PageView&noscript=1"/>
+    </noscript>
+    <header class="action-circles-header">
+      <div class="container">
+        <div class="action-circles-row">
+          <button class="action-circle" onclick="window.location.href='/'">
+            <span class="action-circle__btn">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </span>
+            <span class="action-circle__label">أُورزي ١٩٩٨</span>
+          </button>
+          <button class="action-circle" onclick="openStoryModal()">
+            <span class="action-circle__btn">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            </span>
+            <span class="action-circle__label">آراء</span>
+          </button>
+          <button class="action-circle" onclick="window.open('/bracelets.html', '_blank', 'noopener,noreferrer')">
+            <span class="action-circle__btn">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </span>
+            <span class="action-circle__label">منتجات حالية</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main style="padding-top: 32px;">
+      <div class="container">
+        <div class="form-container">
+          <h3 class="section-title">سلة المشتريات</h3>
+
+          <!-- Cart display area -->
+          <div id="cartSection"></div>
+
+          <!-- Form area (hidden when cart is empty) -->
+          <div id="formArea" style="display: none;">
+            <form id="orderForm">
+              <div class="divider"></div>
+
+              <h3 class="section-title">معلومات التوصيل</h3>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="required">*</span>
+                  الاسم
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="أدخل اسمك الكامل"
+                  required
+                />
+                <div id="nameError" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="required">*</span>
+                  رقم الهاتف
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="01xxxxxxxxx"
+                  required
+                />
+                <div id="phoneError" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  رقم هاتف بديل
+                </label>
+                <input
+                  type="tel"
+                  id="altPhone"
+                  name="altPhone"
+                  class="form-input"
+                  placeholder="01xxxxxxxxx"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="required">*</span>
+                  المحافظة
+                </label>
+                <select id="governorate" name="governorate" class="form-select" required>
+                  <option value="">اختر المحافظة</option>
+                  <option value="القاهرة">القاهرة</option>
+                  <option value="الجيزة">الجيزة</option>
+                  <option value="الإسكندرية">الإسكندرية</option>
+                  <option value="القليوبية">القليوبية</option>
+                  <option value="الدقهلية">الدقهلية</option>
+                  <option value="الشرقية">الشرقية</option>
+                  <option value="الغربية">الغربية</option>
+                  <option value="المنوفية">المنوفية</option>
+                  <option value="البحيرة">البحيرة</option>
+                  <option value="كفر الشيخ">كفر الشيخ</option>
+                  <option value="دمياط">دمياط</option>
+                  <option value="بورسعيد">بورسعيد</option>
+                  <option value="الإسماعيلية">الإسماعيلية</option>
+                  <option value="السويس">السويس</option>
+                  <option value="الفيوم">الفيوم</option>
+                  <option value="بني سويف">بني سويف</option>
+                  <option value="المنيا">المنيا</option>
+                  <option value="أسيوط">أسيوط</option>
+                  <option value="سوهاج">سوهاج</option>
+                  <option value="قنا">قنا</option>
+                  <option value="الأقصر">الأقصر</option>
+                  <option value="أسوان">أسوان</option>
+                  <option value="البحر الأحمر">البحر الأحمر</option>
+                  <option value="مطروح">مطروح</option>
+                  <option value="جنوب سيناء">جنوب سيناء</option>
+                  <option value="شمال سيناء">شمال سيناء</option>
+                  <option value="الوادي الجديد">الوادي الجديد</option>
+                </select>
+                <div id="governorateError" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="required">*</span>
+                  المنطقة
+                </label>
+                <select id="area" name="area" class="form-select" required disabled>
+                  <option value="">اختر المنطقة</option>
+                </select>
+                <div id="areaError" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="required">*</span>
+                  العنوان
+                </label>
+                <input
+                  type="text"
+                  id="street"
+                  name="street"
+                  class="form-input"
+                  placeholder="المنطقة / إسم الشارع"
+                  required
+                />
+                <div id="streetError" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  <span class="required">*</span>
+                  رقم المبنى
+                </label>
+                <input
+                  type="text"
+                  id="building"
+                  name="building"
+                  class="form-input"
+                  placeholder="أدخل رقم المبنى"
+                  required
+                />
+                <div id="buildingError" class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  الدور
+                </label>
+                <input
+                  type="text"
+                  id="floor"
+                  name="floor"
+                  class="form-input"
+                  placeholder="أدخل رقم الدور (اختياري)"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">
+                  معالم قريبة
+                </label>
+                <input
+                  type="text"
+                  id="landmarks"
+                  name="landmarks"
+                  class="form-input"
+                  placeholder="أدخل معالم قريبة (اختياري)"
+                />
+              </div>
+
+              <div class="trust-section">
+                <div class="trust-grid">
+                  <div class="trust-item">
+                    <div class="trust-icon">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                    </div>
+                    <h4 class="trust-title">استبدال خلال 14 يوم</h4>
+                    <p class="trust-description">
+                      يمكنك استبدال المنتج خلال 14 يوم من تاريخ الاستلام إذا لم يكن مناسباً لك.
+                    </p>
+                  </div>
+
+                  <div class="trust-item">
+                    <div class="trust-icon">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <h4 class="trust-title">توصيل سريع</h4>
+                    <p class="trust-description">
+                      يتم تجهيز الطلب وشحنه خلال 3 إلى 5 أيام عمل.
+                    </p>
+                  </div>
+
+                  <div class="trust-item">
+                    <div class="trust-icon">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                      </svg>
+                    </div>
+                    <h4 class="trust-title">تغليف أنيق</h4>
+                    <p class="trust-description">
+                      كل قطعة من ORZI تأتي بتغليف أنيق يليق بقيمتها.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reassurance-text">
+                طلبك يتم تأكيده مباشرة بعد إرسال النموذج،<br>
+                وسيقوم فريق ORZI بالتواصل معك لتأكيد التفاصيل.
+              </div>
+
+              <button type="submit" id="submitBtn" class="submit-button">
+                أكمل طلبك الآن
+              </button>
+
+              <p class="payment-note">
+                الدفع عند الاستلام متاح داخل مصر.
+              </p>
+            </form>
+
+            <div class="closing-section">
+              <h2 class="closing-logo">ORZI</h2>
+              <p class="closing-tagline">خالد. راقٍ. أصيل.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <div class="success-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="modal-title">تم استلام طلبك</h3>
+        <p class="modal-text">سنتواصل معك خلال ٢٤ ساعة</p>
+        <button class="modal-button" onclick="closeModal()">شكراً</button>
+      </div>
+    </div>
+
+    <script>
+      var CART_KEY = 'orzi_cart';
+
+      var SHIPPING_RATES = {
+        'القاهرة': 99,
+        'الجيزة': 99,
+        'الإسكندرية': 114,
+        'القليوبية': 114,
+        'الدقهلية': 120,
+        'الشرقية': 120,
+        'الغربية': 120,
+        'المنوفية': 120,
+        'البحيرة': 120,
+        'كفر الشيخ': 120,
+        'دمياط': 120,
+        'بورسعيد': 125,
+        'الإسماعيلية': 125,
+        'السويس': 125,
+        'الفيوم': 148,
+        'بني سويف': 148,
+        'المنيا': 148,
+        'أسيوط': 148,
+        'سوهاج': 148,
+        'قنا': 160,
+        'الأقصر': 160,
+        'أسوان': 160,
+        'البحر الأحمر': 225,
+        'مطروح': 225,
+        'جنوب سيناء': 225,
+        'شمال سيناء': 225,
+        'الوادي الجديد': 225
+      };
+
+      function getShippingCost() {
+        var gov = document.getElementById('governorate');
+        if (!gov || !gov.value) return 0;
+        return SHIPPING_RATES[gov.value] || 0;
+      }
+
+      function loadCart() {
+        try {
+          var raw = localStorage.getItem(CART_KEY);
+          return raw ? JSON.parse(raw) : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      function saveCart(items) {
+        localStorage.setItem(CART_KEY, JSON.stringify(items));
+      }
+
+      function calcSubtotal(items) {
+        return items.reduce(function(sum, item) {
+          return sum + item.price * item.quantity;
+        }, 0);
+      }
+
+      function calcTotalItems(items) {
+        return items.reduce(function(sum, item) {
+          return sum + item.quantity;
+        }, 0);
+      }
+
+      /* ---------- Render Cart ---------- */
+
+      function renderCart() {
+        var items = loadCart();
+        var cartSection = document.getElementById('cartSection');
+        var formArea = document.getElementById('formArea');
+
+        if (items.length === 0) {
+          formArea.style.display = 'none';
+          cartSection.innerHTML =
+            '<div class="empty-cart">' +
+              '<div class="empty-cart__icon">' +
+                '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                  '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />' +
+                '</svg>' +
+              '</div>' +
+              '<h3 class="empty-cart__title">سلتك فارغة حالياً</h3>' +
+              '<p class="empty-cart__text">لم تقم بإضافة أي منتجات بعد. تصفح تشكيلتنا واختر قطعتك المفضلة.</p>' +
+              '<a href="/bracelets.html" class="empty-cart__btn">تصفح التشكيلة</a>' +
+            '</div>';
+          return;
+        }
+
+        formArea.style.display = 'block';
+
+        var html = '<div class="cart-items">';
+
+        items.forEach(function(item, idx) {
+          var lineTotal = item.price * item.quantity;
+          html +=
+            '<div class="cart-item" data-idx="' + idx + '">' +
+              '<img src="' + item.image + '" alt="' + item.name + '" class="cart-item__image" />' +
+              '<div class="cart-item__info">' +
+                '<div class="cart-item__name">' + item.name + '</div>' +
+                '<div class="cart-item__price">' + item.price + ' جنيه / قطعة</div>' +
+              '</div>' +
+              '<div class="cart-item__qty">' +
+                '<button type="button" class="qty-btn" onclick="changeQty(' + idx + ', -1)">\u2212</button>' +
+                '<span class="qty-value">' + item.quantity + '</span>' +
+                '<button type="button" class="qty-btn" onclick="changeQty(' + idx + ', 1)">+</button>' +
+              '</div>' +
+              '<div class="cart-item__line-total">' + lineTotal + ' جنيه</div>' +
+              '<button type="button" class="cart-item__remove" onclick="removeItem(' + idx + ')" aria-label="حذف">\u00d7</button>' +
+            '</div>';
+        });
+
+        html += '</div>';
+
+        /* Summary */
+        var subtotal = calcSubtotal(items);
+        var totalItems = calcTotalItems(items);
+        var shipping = getShippingCost();
+        var total = subtotal + shipping;
+
+        var shippingLabel = shipping > 0
+          ? shipping + ' جنيه'
+          : 'اختر المحافظة';
+
+        html +=
+          '<div class="cart-summary">' +
+            '<div class="summary-row">' +
+              '<span class="summary-row__label">المجموع الفرعي (' + totalItems + ' قطعة)</span>' +
+              '<span class="summary-row__value">' + subtotal + ' جنيه</span>' +
+            '</div>' +
+            '<div class="summary-row">' +
+              '<span class="summary-row__label">رسوم الشحن</span>' +
+              '<span class="summary-row__value">' + shippingLabel + '</span>' +
+            '</div>' +
+            '<div class="summary-row summary-row--total">' +
+              '<span class="summary-row__label">الإجمالي</span>' +
+              '<span class="summary-row__value">' + total + ' جنيه</span>' +
+            '</div>' +
+          '</div>';
+
+        cartSection.innerHTML = html;
+      }
+
+      function changeQty(idx, delta) {
+        var items = loadCart();
+        if (!items[idx]) return;
+        items[idx].quantity += delta;
+        if (items[idx].quantity <= 0) {
+          items.splice(idx, 1);
+        }
+        saveCart(items);
+        renderCart();
+      }
+
+      function removeItem(idx) {
+        var items = loadCart();
+        items.splice(idx, 1);
+        saveCart(items);
+        renderCart();
+      }
+
+      /* ---------- Governorate / Area ---------- */
+
+      var governorates = {
+        'القاهرة': ['المعادي', 'التجمع الخامس', 'التجمع الأول', 'مدينة نصر', 'مصر الجديدة', 'وسط البلد', 'شبرا', 'عين شمس', 'الزمالك', 'جاردن سيتي', 'حلوان', 'المقطم', 'الشروق', 'بدر', 'العاصمة الإدارية', 'المرج', 'المطرية', 'الزيتون', 'حدائق القبة', 'الوايلي', 'السيدة زينب'],
+        'الجيزة': ['الدقي', 'المهندسين', 'الهرم', 'فيصل', 'أكتوبر', 'الشيخ زايد', 'العجوزة', 'إمبابة', 'حدائق الأهرام', 'العمرانية', 'البدرشين', 'العياط', 'أوسيم', 'كرداسة', 'الصف', 'أبو النمرس'],
+        'الإسكندرية': ['سموحة', 'محرم بك', 'سيدي جابر', 'المنتزة', 'العجمي', 'ميامي', 'لوران', 'كفر عبده', 'الشاطبي', 'جليم', 'العامريية', 'المندرة', 'العصافرة', 'برج العرب'],
+        'القليوبية': ['بنها', 'شبرا الخيمة', 'العبور', 'الخانكة', 'قليوب', 'طوخ', 'قاطر', 'شبين القناطر'],
+        'الدقهلية': ['المنصورة', 'طلخا', 'ميت غمر', 'دكرنس', 'سنبلاوين', 'بلقاس', 'منية النصر', 'شربين'],
+        'الشرقية': ['الزقازيق', 'العاشر من رمضان', 'بلبيس', 'أبو حماد', 'فاقوس', 'ديرب نجم', 'هيها', 'أبو كبير'],
+        'الغربية': ['طنطا', 'المحلة الكبرى', 'زفتى', 'كفر الزيات', 'بسيون', 'قطور', 'السنطة'],
+        'المنوفية': ['شبين الكوم', 'مدينة السادات', 'أشمون', 'منوف', 'قويسنا', 'تلا', 'الشهداء', 'بركة السبع'],
+        'البحيرة': ['دمنهور', 'كفر الدوار', 'إيتاي البارود', 'أبو حمص', 'كوم حمادة', 'رشيد', 'حوش عيسى', 'دلكات'],
+        'كفر الشيخ': ['كفر الشيخ', 'دسوق', 'بلطيم', 'سيدي سالم', 'بيلا', 'قلين', 'مطوبس'],
+        'دمياط': ['دمياط', 'دمياط الجديدة', 'رأس البر', 'فارسكور', 'الزرقا', 'كفر البطيخ'],
+        'بورسعيد': ['حي الشرق', 'حي العرب', 'حي المناخ', 'حي الضواحي', 'بورفؤاد', 'حي الزهور'],
+        'الإسماعيلية': ['الإسماعيلية', 'الفايد', 'القنطرة شرق', 'القنطرة غرب', 'أبو صوير', 'التل الكبير'],
+        'السويس': ['حي السويس', 'حي الأربعين', 'حي عتاقة', 'حي الفيصل', 'حي الجناين'],
+        'الفيوم': ['الفيوم', 'سنورس', 'طامية', 'إطسا', 'أبشواي', 'يوسف الصديق'],
+        'بني سويف': ['بني سويف', 'بني سويف الجديدة', 'الواسطى', 'ناصر', 'إهناسيا', 'ببا', 'الفشن'],
+        'المنيا': ['المنيا', 'المنيا الجديدة', 'ملوي', 'مغاغة', 'بني مزار', 'أبو قرقاص', 'سمالوط'],
+        'أسيوط': ['أسيوط', 'أسيوط الجديدة', 'ديروط', 'القوصية', 'أبنوب', 'منفلوط', 'أبو تيج', 'الفتح'],
+        'سوهاج': ['سوهاج', 'سوهاج الجديدة', 'أخميم', 'جرجا', 'طهطا', 'البلينا', 'المراغة'],
+        'قنا': ['قنا', 'قنا الجديدة', 'نجع حمادي', 'قوص', 'دشنا', 'فرشوط', 'أبو تشت'],
+        'الأقصر': ['الأقصر', 'القرنة', 'أرمنت', 'إسنا', 'طيبة الجديدة'],
+        'أسوان': ['أسوان', 'أسوان الجديدة', 'كوم أمبو', 'إدفو', 'دراو', 'نصر النوبة'],
+        'البحر الأحمر': ['الغردقة', 'الجونة', 'سفاجا', 'القصير', 'مرسى علم', 'رأس غارب'],
+        'مطروح': ['مرسى مطروح', 'الساحل الشمالي', 'العلمين', 'العلمين الجديدة', 'الحمام', 'سيوة', 'الضبعة'],
+        'جنوب سيناء': ['شرم الشيخ', 'دهب', 'نويبع', 'طابا', 'طور سيناء', 'رأس سدر'],
+        'شمال سيناء': ['العريش', 'بئر العبد', 'الشيخ زويد'],
+        'الوادي الجديد': ['الخارجة', 'الداخلة', 'الفرافرة']
+      };
+
+      var governorateSelect = document.getElementById('governorate');
+      var areaSelect = document.getElementById('area');
+      var form = document.getElementById('orderForm');
+      var submitBtn = document.getElementById('submitBtn');
+      var modal = document.getElementById('successModal');
+
+      function clearError(errorId) {
+        var el = document.getElementById(errorId);
+        if (el) el.textContent = '';
+      }
+
+      function showError(errorId, message) {
+        var el = document.getElementById(errorId);
+        if (el) el.textContent = message;
+      }
+
+      governorateSelect.addEventListener('change', function() {
+        var selectedGov = this.value;
+        areaSelect.innerHTML = '<option value="">اختر المنطقة</option>';
+
+        if (selectedGov && governorates[selectedGov]) {
+          areaSelect.disabled = false;
+          governorates[selectedGov].forEach(function(area) {
+            var option = document.createElement('option');
+            option.value = area;
+            option.textContent = area;
+            areaSelect.appendChild(option);
+          });
+        } else {
+          areaSelect.disabled = true;
+        }
+
+        clearError('governorateError');
+        renderCart();
+      });
+
+      function validateForm() {
+        var isValid = true;
+
+        document.querySelectorAll('.error-message').forEach(function(el) { el.textContent = ''; });
+
+        var name = document.getElementById('name').value.trim();
+        if (!name) {
+          showError('nameError', 'الاسم مطلوب');
+          isValid = false;
+        }
+
+        var phone = document.getElementById('phone').value.trim();
+        if (!phone) {
+          showError('phoneError', 'رقم الهاتف مطلوب');
+          isValid = false;
+        } else if (!/^01\d{9}$/.test(phone)) {
+          showError('phoneError', 'رقم الهاتف يجب أن يكون 11 رقم ويبدأ بـ 01');
+          isValid = false;
+        }
+
+        var governorate = document.getElementById('governorate').value;
+        if (!governorate) {
+          showError('governorateError', 'المحافظة مطلوبة');
+          isValid = false;
+        }
+
+        var area = document.getElementById('area').value;
+        if (!area) {
+          showError('areaError', 'المنطقة مطلوبة');
+          isValid = false;
+        }
+
+        var street = document.getElementById('street').value.trim();
+        if (!street) {
+          showError('streetError', 'اسم الشارع مطلوب');
+          isValid = false;
+        }
+
+        var building = document.getElementById('building').value.trim();
+        if (!building) {
+          showError('buildingError', 'رقم المبنى مطلوب');
+          isValid = false;
+        }
+
+        var items = loadCart();
+        if (items.length === 0) {
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      var lastSubmitTime = 0;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        var now = Date.now();
+        if (now - lastSubmitTime < 1000) {
+          return;
+        }
+        lastSubmitTime = now;
+
+        if (!validateForm()) {
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'جاري الإرسال...';
+
+        var items = loadCart();
+        var subtotal = calcSubtotal(items);
+        var totalItems = calcTotalItems(items);
+        var shipping = getShippingCost();
+        var totalPrice = subtotal + shipping;
+
+        /* Build product quantity fields for all 8 products (default 0) */
+        var productNameMap = {
+          'AURA': 'auraQty',
+          'HARMONIA': 'harmoniaQty',
+          'SOPHIA': 'sophiaQty',
+          'KA\u00efRO': 'kairoQty',
+          'KAÏRO': 'kairoQty',
+          'AURELIA': 'aureliaQty',
+          'SOLÉA': 'soleaQty',
+          'RUBRA': 'rubraQty',
+          'VERA': 'veraQty'
+        };
+
+        var qtyFields = {
+          auraQty: 0,
+          harmoniaQty: 0,
+          sophiaQty: 0,
+          kairoQty: 0,
+          aureliaQty: 0,
+          soleaQty: 0,
+          rubraQty: 0,
+          veraQty: 0
+        };
+
+        items.forEach(function(item) {
+          var fieldKey = productNameMap[item.name];
+          if (fieldKey) {
+            qtyFields[fieldKey] += item.quantity;
+          }
+        });
+
+        /* Build detailed address string from form fields */
+        var addressParts = [];
+        var streetVal = document.getElementById('street').value.trim();
+        var buildingVal = document.getElementById('building').value.trim();
+        var floorVal = document.getElementById('floor').value.trim();
+        var landmarksVal = document.getElementById('landmarks').value.trim();
+        if (streetVal) addressParts.push('الشارع: ' + streetVal);
+        if (buildingVal) addressParts.push('مبنى: ' + buildingVal);
+        if (floorVal) addressParts.push('دور: ' + floorVal);
+        if (landmarksVal) addressParts.push('معالم: ' + landmarksVal);
+        var detailedAddress = addressParts.join('، ');
+
+        /* Optional notes from landmarks field */
+        var notes = landmarksVal || '';
+
+        var formData = {
+          name: document.getElementById('name').value.trim(),
+          phone: document.getElementById('phone').value.trim(),
+          altPhone: document.getElementById('altPhone').value.trim(),
+          governorate: document.getElementById('governorate').value,
+          area: document.getElementById('area').value,
+          address: detailedAddress,
+          auraQty: qtyFields.auraQty,
+          harmoniaQty: qtyFields.harmoniaQty,
+          sophiaQty: qtyFields.sophiaQty,
+          kairoQty: qtyFields.kairoQty,
+          aureliaQty: qtyFields.aureliaQty,
+          soleaQty: qtyFields.soleaQty,
+          rubraQty: qtyFields.rubraQty,
+          veraQty: qtyFields.veraQty,
+          totalPrice: totalPrice,
+          notes: notes
+        };
+
+        try {
+          var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKn7JI03sGB9cVkw3DSsBmnpQJXnlmtE5yGyWHf9i3hdpnh-z9xM3prjAIuhzTRJ8F/exec';
+
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (typeof window !== 'undefined' && window.fbq) {
+            window.fbq('track', 'Purchase', {
+              value: totalPrice,
+              currency: 'EGP',
+              content_name: 'ORZI Heritage Bracelets',
+              num_items: totalItems
+            });
+          }
+
+          /* Clear cart after successful submission */
+          localStorage.removeItem(CART_KEY);
+
+          modal.classList.add('active');
+          form.reset();
+          areaSelect.disabled = true;
+          renderCart();
+        } catch (error) {
+          modal.classList.add('active');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'أكمل طلبك الآن';
+        }
+      });
+
+      function closeModal() {
+        modal.classList.remove('active');
+      }
+
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      ['name', 'phone', 'area', 'street', 'building', 'floor', 'landmarks', 'governorate'].forEach(function(fieldId) {
+        var el = document.getElementById(fieldId);
+        if (el) {
+          el.addEventListener('input', function() {
+            clearError(fieldId + 'Error');
+          });
+        }
+      });
+
+      areaSelect.addEventListener('change', function() {
+        clearError('areaError');
+      });
+
+      /* Initial render */
+      renderCart();
+
+      /* Fire InitiateCheckout if cart has items on page load */
+      (function() {
+        var initialItems = loadCart();
+        if (initialItems.length > 0) {
+          var initTotals = initialItems.reduce(function(acc, item) {
+            return { count: acc.count + item.quantity, total: acc.total + item.price * item.quantity };
+          }, { count: 0, total: 0 });
+          if (typeof window !== 'undefined' && window.fbq) {
+            window.fbq('track', 'InitiateCheckout', {
+              value: initTotals.total,
+              currency: 'EGP',
+              num_items: initTotals.count
+            });
+          }
+        }
+      })();
+
+      /* Listen for cart changes from other tabs */
+      window.addEventListener('storage', function(e) {
+        if (e.key === CART_KEY) {
+          renderCart();
+        }
+      });
+    </script>
+
+    <!-- Story Modal -->
+    <div id="storyOverlay" class="story-overlay">
+      <div class="story-container" id="storyContainer">
+        <img id="storyImg" class="story-img" src="" alt="آراء" />
+        <div class="story-gradient-top"></div>
+        <div class="story-gradient-bottom"></div>
+        <div class="story-progress-row" id="storyProgress"></div>
+        <div class="story-header">
+          <span class="story-title">آراء</span>
+          <button class="story-close" onclick="closeStoryModal()">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <button class="story-nav story-nav--prev" onclick="storyPrev(event)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button class="story-nav story-nav--next" onclick="storyNext(event)">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        <div class="story-counter" id="storyCounter"></div>
+      </div>
+    </div>
+
+    <script>
+      var storyImages = ['/rev1.jpg','/rev2.jpg','/rev3.jpg','/rev4.jpg','/rev5.jpg','/rev6.jpg','/rev7.jpg','/rev8.jpg','/rev9.jpg','/rev10.jpg','/rev11.jpg','/rev12.jpg'];
+      var storySlide = 0;
+      var storyProgress = 0;
+      var storyRafId = null;
+      var storyLastTick = 0;
+      var storyPaused = false;
+      var STORY_DURATION = 6000;
+      var storyOverlay = document.getElementById('storyOverlay');
+      var storyImg = document.getElementById('storyImg');
+      var storyProgressEl = document.getElementById('storyProgress');
+      var storyCounter = document.getElementById('storyCounter');
+      var storyContainer = document.getElementById('storyContainer');
+
+      function buildStoryProgressBars() {
+        var html = '';
+        for (var i = 0; i < storyImages.length; i++) {
+          html += '<div class="story-progress-bar"><div class="story-progress-fill" id="storyFill' + i + '"></div></div>';
+        }
+        storyProgressEl.innerHTML = html;
+      }
+
+      function updateStoryProgressBars() {
+        for (var i = 0; i < storyImages.length; i++) {
+          var fill = document.getElementById('storyFill' + i);
+          if (!fill) continue;
+          if (i < storySlide) fill.style.width = '100%';
+          else if (i === storySlide) fill.style.width = storyProgress + '%';
+          else fill.style.width = '0%';
+        }
+      }
+
+      function storyTick(now) {
+        if (storyPaused) { storyLastTick = now; storyRafId = requestAnimationFrame(storyTick); return; }
+        var elapsed = now - storyLastTick;
+        storyLastTick = now;
+        storyProgress += (elapsed / STORY_DURATION) * 100;
+        if (storyProgress >= 100) {
+          storyNextInternal();
+          return;
+        }
+        updateStoryProgressBars();
+        storyRafId = requestAnimationFrame(storyTick);
+      }
+
+      function startStoryTimer() {
+        cancelAnimationFrame(storyRafId);
+        storyProgress = 0;
+        storyLastTick = performance.now();
+        storyRafId = requestAnimationFrame(storyTick);
+      }
+
+      function showStorySlide() {
+        storyImg.src = storyImages[storySlide];
+        storyCounter.textContent = (storySlide + 1) + ' / ' + storyImages.length;
+        updateStoryProgressBars();
+      }
+
+      function storyNextInternal() {
+        if (storySlide + 1 < storyImages.length) {
+          storySlide++;
+          showStorySlide();
+          startStoryTimer();
+        } else {
+          closeStoryModal();
+        }
+      }
+
+      function storyNext(e) {
+        if (e) e.stopPropagation();
+        if (storySlide + 1 < storyImages.length) {
+          storySlide++;
+          showStorySlide();
+          startStoryTimer();
+        } else {
+          closeStoryModal();
+        }
+      }
+
+      function storyPrev(e) {
+        if (e) e.stopPropagation();
+        if (storySlide > 0) {
+          storySlide--;
+          showStorySlide();
+          startStoryTimer();
+        }
+      }
+
+      function openStoryModal() {
+        storySlide = 0;
+        storyProgress = 0;
+        buildStoryProgressBars();
+        showStorySlide();
+        storyOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        startStoryTimer();
+      }
+
+      function closeStoryModal() {
+        cancelAnimationFrame(storyRafId);
+        storyOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      storyOverlay.addEventListener('click', function(e) {
+        if (e.target === storyOverlay) closeStoryModal();
+      });
+
+      storyContainer.addEventListener('mousedown', function() { storyPaused = true; });
+      storyContainer.addEventListener('mouseup', function() { storyPaused = false; storyLastTick = performance.now(); });
+      storyContainer.addEventListener('mouseleave', function() { storyPaused = false; storyLastTick = performance.now(); });
+
+      document.addEventListener('keydown', function(e) {
+        if (!storyOverlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeStoryModal();
+        if (e.key === 'ArrowRight') storyNext();
+        if (e.key === 'ArrowLeft') storyPrev();
+      });
+    </script>
+
+    <a
+      href="https://wa.me/201037780651?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D8%B1%D9%8A%D9%82%20%D8%A3%D9%88%D8%B1%D8%B2%D9%8A%D8%8C%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%A5%D9%84%D9%89%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="wa-fab"
+      aria-label="تواصل معنا عبر واتساب"
+    >
+      <span class="wa-fab__tooltip">تواصل معنا عبر واتساب</span>
+      <span class="wa-fab__btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </span>
+    </a>
+  </body>
+</html>

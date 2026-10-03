@@ -1,0 +1,45 @@
+export interface Product {
+  id: string;
+  name: string;
+  nameAr: string;
+  slug: string;
+  price: number;
+  collection: 'bracelets' | 'outerwear' | 'tailored';
+  image: string;
+  images: string[];
+  description: string;
+  descriptionAr: string;
+  status: 'available' | 'coming-soon' | 'sold-out';
+  isNew?: boolean;
+  specs: {
+    material: string;
+    materialAr: string;
+    coating: string;
+    coatingAr: string;
+    resistance: string;
+    resistanceAr: string;
+    size: string;
+    sizeAr: string;
+    color: string;
+    colorAr: string;
+    unisex: boolean;
+  };
+}
+
+export interface Collection {
+  id: string;
+  name: string;
+  nameAr: string;
+  slug: string;
+  description: string;
+  descriptionAr: string;
+  status: 'available' | 'coming-soon' | 'sold-out';
+  image: string;
+  productCount: number;
+}
+
+export interface CartItem {
+  productId: string;
+  quantity: number;
+  selectedVariant?: string;
+}
