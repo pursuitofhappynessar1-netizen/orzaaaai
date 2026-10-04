@@ -2,7 +2,7 @@ import { Product } from '../types/product';
 
 export const products: Product[] = [
   {
-    id: 'aura',
+    id: 'ORZ-CAT-DR1-AUR-01',
     name: 'AURA',
     nameAr: 'أورا - تصميم مستقيم',
     slug: 'aura-straight',
@@ -28,7 +28,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'harmonia',
+    id: 'ORZ-CAT-DR1-HAR-02',
     name: 'HARMONIA',
     nameAr: 'هارمونيا - تصميم منحني',
     slug: 'harmonia-curved',
@@ -54,7 +54,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'sophia',
+    id: 'ORZ-CAT-DR1-SOP-03',
     name: 'SOPHIA',
     nameAr: 'صوفيا - تصميم منحني ذهبي',
     slug: 'sophia-curved-gold',
@@ -80,7 +80,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'kairo',
+    id: 'ORZ-CAT-DR1-KAI-05',
     name: 'KAÏRO',
     nameAr: 'كايرو - تصميم مميز',
     slug: 'kairo-bracelet',
@@ -107,7 +107,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'aurelia',
+    id: 'ORZ-CAT-DR1-AURE-06',
     name: 'AURELIA',
     nameAr: 'أوريليا - تصميم راقي',
     slug: 'aurelia-bracelet',
@@ -134,7 +134,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'solea',
+    id: 'ORZ-CAT-DR1-SOL-04',
     name: 'SOLÉA',
     nameAr: 'سوليا - تصميم أنثوي',
     slug: 'solea-bracelet',
@@ -161,7 +161,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'rubra',
+    id: 'ORZ-CAT-DR1-RUB-08',
     name: 'RUBRA',
     nameAr: 'روبرا - نحاس أحمر',
     slug: 'rubra-bracelet',
@@ -188,7 +188,7 @@ export const products: Product[] = [
     },
   },
   {
-    id: 'vera',
+    id: 'ORZ-CAT-DR1-VER-07',
     name: 'VERA',
     nameAr: 'فيرا - تصميم أنيق',
     slug: 'vera-bracelet',
