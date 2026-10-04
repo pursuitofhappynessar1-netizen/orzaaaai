@@ -55,6 +55,35 @@ function BraceletSection({
   const [activeImage, setActiveImage] = useState(0);
   const [fading, setFading] = useState(false);
   const [added, setAdded] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const viewedRef = useRef(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5 && !viewedRef.current) {
+            viewedRef.current = true;
+            if (typeof window !== 'undefined' && window.fbq) {
+              window.fbq('track', 'ViewContent', {
+                content_ids: [product.id],
+                content_type: 'product',
+                content_name: product.name,
+                currency: 'EGP',
+                value: product.price,
+              });
+            }
+            observer.disconnect();
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [product.id, product.name, product.price]);
 
   const handleThumb = (i: number) => {
     if (i === activeImage) return;
@@ -74,7 +103,7 @@ function BraceletSection({
   const isReversed = index % 2 === 1;
 
   return (
-    <div>
+    <div ref={sectionRef}>
       <div
         className={`grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center ${
           isReversed ? 'md:grid-flow-col-dense' : ''
@@ -498,9 +527,11 @@ export default function BraceletsPage() {
   const handleAddToCart = useCallback((product: Product) => {
     if (typeof window !== 'undefined' && window.fbq) {
       window.fbq('track', 'AddToCart', {
+        content_ids: [product.id],
+        content_type: 'product',
         content_name: product.name,
-        value: product.price,
         currency: 'EGP',
+        value: product.price,
       });
     }
     setCartItems((prev) => {
