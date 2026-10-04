@@ -192,7 +192,7 @@ export const products: Product[] = [
     name: 'VERA',
     nameAr: 'فيرا - تصميم أنيق',
     slug: 'vera-bracelet',
-    price: 440,
+    price: 420,
     collection: 'bracelets',
     image: '/vera.jpg',
     images: ['/vera.jpg', '/vera1.jpg'],
